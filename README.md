@@ -43,3 +43,9 @@ Linear Regression using Apache Spark
     </dependencies>
     ```
 
+## Screenshots
+
+![Linear Regression Example](screenes/0.png)
+![Linear Regression Example](screenes/1.png)
+
+

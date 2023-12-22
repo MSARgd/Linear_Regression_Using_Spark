@@ -4,10 +4,8 @@ import org.apache.log4j.Logger;
 import org.apache.spark.ml.feature.VectorAssembler;
 import org.apache.spark.ml.regression.LinearRegression;
 import org.apache.spark.ml.regression.LinearRegressionModel;
+import org.apache.spark.ml.regression.LinearRegressionTrainingSummary;
 import org.apache.spark.sql.*;
-import org.apache.spark.sql.streaming.StreamingQuery;
-import org.apache.spark.sql.types.*;
-
 public class Main {
     public static void main(String[] args) {
         Logger.getLogger("org").setLevel(Level.ERROR);
@@ -31,8 +29,15 @@ public class Main {
         Dataset<Row> predictions = model.transform(test);
         predictions.show();
         System.out.println("intercept : "+ model.intercept() + "coefficients : "+model.coefficients());
-        System.out.println("Loss  : "+ model.loss());
-        System.out.println("summary : \n"+model.summary());
+        LinearRegressionTrainingSummary summary = model.summary();
+
+        // Root Mean Squared Error (RMSE)
+                System.out.println("Root Mean Squared Error: " + summary.rootMeanSquaredError());
+        // R-squared
+        System.out.println("R-squared: " + summary.r2());
+
+
+
 
     }
 }
