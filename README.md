@@ -17,7 +17,7 @@ Linear Regression using Apache Spark
     git clone https://github.com/MSARgd/Linear_Regression_Using_Spark.git
     ```
 
-2. Set up Apache Spark in your project and configure the necessary dependencies in your build tool (e.g., Maven, SBT).
+2. Set up Apache Spark in your project and configure the necessary dependencies in your build tool (e.g., Maven, Gradle).
 
    For Maven, add the following dependencies:
 
